@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Recommendations</title>
 </head>
 <body>
+    <h1>Recommendations for "{{ movie }}"</h1>
 
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <ul>
+        {% for rec in recommendations %}
+            <li>{{ rec.title }} (rating: {{ rec.vote_average }})</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="/">Search again</a>
 </body>
 </html>
